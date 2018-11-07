@@ -1,0 +1,48 @@
+{% extends "Skeleton.html" %}
+
+{% block page_title %} Database {% endblock %}
+
+{% block page_container %}
+<p>You searched for: {{ query }}</p>
+
+{% if found_customers %}
+    <p>We found {{ found_customers|length }} customer{{ found_customers|pluralize }} that have '{{ query }}' in them.</p>
+    <ul>
+        {% for customers in found_customers %}
+        <li class="customer_details">
+            {{ customers.firstname }}
+            {{ customers.lastname }}
+            {{ customers.age }}
+            {{ customers.gender }}
+        </li>
+        {% endfor %}
+    </ul>
+
+{% elif found_vehicles %}
+    <p>We found {{ found_vehicles|length }} vehicle{{ found_vehicles|pluralize }} that have '{{ query }}' in them.</p>
+    <ul>
+    {% for vehicles in found_vehicles %}
+        <li class="vehicle_details">
+            {{ vehicles.name }}
+            {{ vehicles.model }}
+            {{ vehicles.year }}
+            {{ vehicles.manufacturer }}
+        </li>
+    {% endfor %}
+    </ul>
+
+{% elif found_manufacturers %}
+    <p>We found {{ found_manufacturers|length }} manufacturer{{ found_manufacturers|pluralize }} that have '{{ query }}' in them.</p>
+    <ul>
+    {% for manufacturers in found_manufacturers %}
+        <li class="manufacturer_details">
+            {{ manufacturers.name }}
+            {{ manufacturers.location }}
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>{{ failed_query }}</p>
+{% endif %}
+
+{% endblock %}

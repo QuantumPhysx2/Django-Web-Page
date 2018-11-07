@@ -1,0 +1,13 @@
+{% extends "Skeleton.html" %}
+
+{% block page_title %} {{ title }} {% endblock %}
+
+{% block page_container %}
+<div class="information">
+    <h1>{{ title }}</h1>
+    <p>Student Name: {{ std_name }}</p>
+    <p>Student Number: {{ std_num }}</p>
+    <p>Topic of Choice: {{ std_topic }}</p>
+    <p>{{ std_reason }}</p>
+</div>
+{% endblock %}

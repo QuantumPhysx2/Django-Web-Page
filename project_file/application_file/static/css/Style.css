@@ -1,0 +1,217 @@
+body {
+  font-family: "Helvetica";
+  margin: 0px;
+}
+
+/*Header*/
+.header_block {
+  margin-top: -17px;
+}
+
+.nav-menu {
+  background: #222;
+  width: auto;
+}
+
+.nav-menu ul {
+  list-style: none;
+  display: block;
+  padding: 0px;
+}
+
+.nav-menu ul:after {
+  content: "";
+  display: block;
+  font-size: 0;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.nav-menu ul li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-menu.align-right ul li {
+  float: right;
+}
+
+.nav-menu.align-center ul {
+  text-align: center;
+}
+
+.nav-menu ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  display: block;
+  padding: 15px 25px;
+  font-family: "Verdana";
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 14px;
+  position: relative;
+  transition: color .25s;
+}
+
+.nav-menu ul li a:hover {
+  color: #4facfe;
+}
+
+.nav-menu ul li a:hover:before {
+  width: 100%;
+}
+
+.nav-menu ul li a:after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: -3px;
+  top: 19px;
+  height: 6px;
+  width: 6px;
+  background: #ffffff;
+  opacity: .5;
+}
+
+.nav-menu ul li a:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 0;
+  background: #4facfe;
+  transition: width .25s;
+}
+
+.nav-menuul li.last > a:after,
+.nav-menu ul li:last-child > a:after {
+  display: none;
+}
+
+.nav-menu ul li.active a:before {
+  width: 100%;
+}
+
+.nav-menu.align-right li.last > a:after,
+.nav-menu.align-right li:last-child > a:after {
+  display: block;
+}
+
+.nav-menu.align-right li:first-child a:after {
+  display: none;
+}
+
+h1 {
+  font-size: 30px;
+}
+
+/*Body*/
+.page_block {
+  margin: 50px 225px 50px 225px;
+}
+
+.search-section {
+  margin: 0px 500px 0px 500px;
+  padding: 0px 100px 0px 100px;
+}
+
+/* Table */
+.customer-database {
+  margin: 15px 75px 15px 75px;
+  padding: 15px 25px 15px 25px;
+}
+
+.manufacturer-database {
+ margin: 15px 400px 15px 400px;
+ padding: 15px 50px 15px 50px;
+}
+
+.customer-table,
+.vehicle-table,
+.manufacturer-table {
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.update_form_block > form {
+  margin: 0px 450px 0px 450px;
+  padding: 0px 25px 0px 25px;
+}
+
+.create_form_block {
+  margin: 0px 425px 0px 425px;
+  padding: 0px 30px 0px 30px;
+}
+
+.customer-table th,
+.customer-table td,
+.vehicle-table th,
+.vehicle-table td,
+.manufacturer-table th,
+.manufacturer-table td{
+  border: 1px solid #e1edff;
+  padding: 7px 17px;
+}
+
+.customer-table .title,
+.vehicle-table .title,
+.manufacturer-table .title {
+  caption-side: bottom;
+  margin-top: 12px;
+}
+
+/* Table Header */
+.customer-table thead th,
+.vehicle-table thead th,
+.manufacturer-table thead th {
+  background-color: #222;
+  color: #fff;
+  border-color: #6ea1cc;
+}
+
+/* Table Body */
+.customer-table tbody td,
+.vehicle-table tbody td,
+.manufacturer tbody td {
+  color: #353535;
+}
+
+.customer-table tbody td:first-child,
+.customer-table tbody td:last-child,
+.vehicle-table tbody td:first-child,
+.vehicle-table tbody td:last-child,
+.manufacturer-table tbody td:first-child,
+.manufacturer-table tbody td:last-child {
+  text-align: right;
+}
+
+.customer-table tbody tr:nth-child td,
+.vehicle-table tbody tr:nth-child td,
+.manufacturer-table tbody tr:nth-child td {
+  background-color: #f4fbff;
+}
+
+.customer-table tbody tr:hover td,
+.vehicle-table tbody tr:hover td,
+.manufacturer-table tbody tr:hover td {
+  background-color: #ffffa2;
+  border-color: #ffff0f;
+  transition: all 0.2s;
+}
+
+/* Table Footer */
+.customer-table tfoot th,
+.vehicle-table tfoot th,
+.manufacturer-table tfoot th {
+  background-color: #e5f5ff;
+}
+
+.customer-table tfoot th:first-child,
+.vehicle-table tfoot th:first-child
+.manufacturer-table tfoot th:first-child {
+  text-align: left;
+}

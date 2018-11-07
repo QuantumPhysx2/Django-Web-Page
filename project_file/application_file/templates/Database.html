@@ -1,0 +1,134 @@
+{% extends "Skeleton.html" %}
+
+{% block page_title %} Database {% endblock %}
+
+{% block page_container %}
+<div class="database">
+    <h1>To find a Customer or Vehicle, type their NAME. To find a Manufacturer, type their LOCATION (in Australia)</h1>
+    <div class="search-section">
+        <!--action="<application.urls NAME>"-->
+        <form action="{% url 'search_url' %}" method="get">       <!--method="get" Means retrieve User's input-->
+            <!--name="q" Means User search is a Query and is in text form-->
+            <input type="text" name="q" placeholder="Find a record">
+            <input type="submit" value="Search">
+        </form>
+    </div>
+
+    <div class="customer-database">
+        <form action="{% url 'create_customer_url' %}" method="post" novalidate>
+            <h1>Customer Database</h1>
+            <p>{{ customer_db_desc }}</p>
+            {% csrf_token %}
+            <button type="submit">Enroll in a Car Rental</button>
+        </form>
+
+        <table class="customer-table" border="1">
+            <thead>
+            <tr>
+                <th>Customer ID</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Email</th>
+                <th>Contact Number</th>
+                <th>Rental Plan</th>
+                <th>Currently Renting</th>
+                <th colspan="2">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for customer in customer_DB %}
+            <tr>
+                <td># {{ customer.customer_id }}</td>
+                <td>{{ customer.firstname }}</td>
+                <td>{{ customer.lastname }}</td>
+                <td>{{ customer.age}}</td>
+                <td>{{ customer.gender }}</td>
+                <td><a href="mailto:{{ customer.email }}">{{ customer.email }}</a></td>
+                <td>+61 {{ customer.contact_number }}</td>
+                <td>{{ customer.rental_plan }}</td>
+                <td>{{ customer.vehicle_id }}</td>
+                <td><a href="{% url 'update_customer_url' customer.customer_id %}">Update</a></td>
+                <td><a href="{% url 'delete_customer_url' customer.customer_id %}">Delete</a></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="vehicle-database">
+        <form action="{% url 'create_vehicle_url' %}" method="post" novalidate>
+            <h1>Vehicle Database</h1>
+            <p>{{ vehicle_db_desc }}</p>
+            {% csrf_token %}
+            <button type="submit">Add a New Vehicle</button>
+        </form>
+
+        <table class="vehicle-table" border="1">
+            <thead>
+            <tr>
+                <th>Vehicle ID</th>
+                <th>Name</th>
+                <th>Model</th>
+                <th>Year</th>
+                <th>Manufacturer</th>
+                <th>Drivetrain</th>
+                <th>Number of Seats</th>
+                <th>Type of Vehicle</th>
+                <th>Description</th>
+                <th colspan="2">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for vehicle in vehicle_DB %}
+            <tr>
+                <td># {{ vehicle.vehicle_id }}</td>
+                <td>{{ vehicle.name }}</td>
+                <td>{{ vehicle.model }}</td>
+                <td>{{ vehicle.year }}</td>
+                <td>{{ vehicle.manufacturer_id }}</td>
+                <td>{{ vehicle.drivetrain }}</td>
+                <td>{{ vehicle.passenger_capacity }}</td>
+                <td>{{ vehicle.type }}</td>
+                <td>{{ vehicle.description}}</td>
+                <td><a href="{% url 'update_vehicle_url' vehicle.vehicle_id %}">Update</a></td>
+                <td><a href="{% url 'delete_vehicle_url' vehicle.vehicle_id %}">Delete</a></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="manufacturer-database">
+        <form action="{% url 'create_manufacturer_url' %}" method="post" novalidate>
+            <h1>Manufacturer Database</h1>
+            <p>{{ manufacturer_db_desc }}</p>
+            {% csrf_token %}
+            <button type="submit">Add a Manufacturer</button>
+        </form>
+
+        <table class="manufacturer-table" border="1">
+            <thead>
+            <tr>
+                <th>Manufacturer ID</th>
+                <th>Company</th>
+                <th>Location</th>
+                <th colspan="2">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for manufacturer in manufacturer_DB %}
+            <tr>
+                <td># {{ manufacturer.manufacturer_id }}</td>
+                <td>{{ manufacturer.name }}</td>
+                <td>{{ manufacturer.location }}</td>
+                <td><a href="{% url 'update_manufacturer_url' manufacturer.manufacturer_id %}">Update</a></td>
+                <td><a href="{% url 'delete_manufacturer_url' manufacturer.manufacturer_id %}">Delete</a></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

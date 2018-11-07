@@ -1,0 +1,16 @@
+<!-- This page is for helping the User to create their records -->
+{% extends "Skeleton.html" %}
+
+{% block page_title %} {{ title }} {% endblock %}
+
+{% block page_container %}
+<div class="container">
+    <h1>{{ title }}</h1>
+    <h1>Adding</h1>
+    <p>{{ add_guide }}</p>
+    <h1>Updating</h1>
+    <p>{{ update_guide }}</p>
+    <h1>Deleting</h1>
+    <p>{{ delete_guide }}</p>
+</div>
+{% endblock %}

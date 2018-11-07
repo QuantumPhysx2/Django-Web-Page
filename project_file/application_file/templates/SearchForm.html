@@ -1,0 +1,19 @@
+{% extends "Skeleton.html" %}
+
+{% block page_title %} Database {% endblock %}
+
+{% block page_container %}
+<h1>To find a Customer or Vehicle, type their NAME. To find a Manufacturer, type their LOCATION (in Australia)</h1>
+<div class="search-section">
+    {% if error %}
+        <p>Enter the Customer or Vehicle NAME or Manufacturer LOCATION to find the record(s)</p>
+    {% endif %}
+    <!--action="<application.urls NAME>"-->
+    <form action="{% url 'search_url' %}" method="get">       <!--method="get" Means retrieve User's input-->
+        <!--name="q" Means User search is a Query and is in text form-->
+        <input type="text" name="q" placeholder="Find a record">
+        <input type="submit" value="Search">
+    </form>
+</div>
+{% endblock %}
+

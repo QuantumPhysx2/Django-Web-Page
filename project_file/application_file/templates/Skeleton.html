@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!--The Skeleton.html has remained un-altered as of the previous assignment and is only used in this assignment to save time-->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/Style.css' %}">
+
+    <title>{% block page_title %} {% endblock %}</title>
+</head>
+<body>
+    <div class="header_block">
+        <div class="nav-menu">
+            {% include "includes/Navigation.html" %}
+        </div>
+    </div>
+
+    <div class="page_block">
+        {% block page_container %} {% endblock %}
+    </div>
+</body>
+</html>

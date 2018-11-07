@@ -1,0 +1,14 @@
+{% extends "Skeleton.html" %}
+
+{% block page_title %} {{ title }} {% endblock %}
+
+{% block page_container %}
+<form method="post">
+    {% csrf_token %}
+
+    <h1>Are you sure you wish to delete record: {{ entity.firstname }} {{ entity.lastname }} {{ entity.name }}?</h1>
+
+    <p>{{ warning_message }}</p>
+    <button type="submit">Confirm</button>
+</form>
+{% endblock %}

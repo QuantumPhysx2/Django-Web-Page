@@ -1,0 +1,40 @@
+{% extends "Skeleton.html" %}
+
+{% block page_title %} {{ title }} {% endblock %}
+
+{% block page_container %}
+
+<div class="create_form_block">
+{% if customer_form %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <h1>{{ title }}</h1>
+        <table class="customer-table">
+            {{ customer_form.as_table }}
+        </table>
+        <button type="submit">Save</button>
+    </form>
+
+    {% elif vehicle_form %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <h1>{{ title }}</h1>
+        <table class="vehicle-table">
+            {{ vehicle_form.as_table }}
+        </table>
+        <button type="submit">Save</button>
+    </form>
+
+    {% elif manufacturer_form %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <h1>{{ title }}</h1>
+        <table class="manufacturer-table">
+            {{ manufacturer_form.as_table }}
+        </table>
+        <button type="submit">Save</button>
+    </form>
+{% endif %}
+</div>
+
+{% endblock %}
